@@ -1,0 +1,52 @@
+﻿@model Infrastructure.ScheduleModel.ScheduleModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Criar novo agendamento</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="PetName" class="control-label">Nome do Pet</label>
+                <input asp-for="PetName" class="form-control" required/>
+                <span asp-validation-for="PetName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PetBreed" class="control-label">Raça do Pet</label>
+                <input asp-for="PetBreed" class="form-control" />
+                <span asp-validation-for="PetBreed" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SchedulingDate" class="control-label">Data do agendamento</label>
+                <input asp-for="SchedulingDate" class="form-control" required/>
+                <span asp-validation-for="SchedulingDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PetOwner" class="control-label">Nome do dono</label>
+                <input asp-for="PetOwner" class="form-control" required/>
+                <span asp-validation-for="PetOwner" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PhoneNumber" class="control-label">Nº de Telefone</label>
+                <input asp-for="PhoneNumber" class="form-control" required/>
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Criar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Voltar para a listagem</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
